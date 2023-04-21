@@ -1,0 +1,8 @@
+# Folders
+node_modules/
+
+# Files
+credential.json
+
+# Dotfiles
+.env
