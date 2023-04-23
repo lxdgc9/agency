@@ -1,13 +1,6 @@
-import { Schema, Types, model } from "mongoose";
+import mongoose from "mongoose";
 
-interface IPerm {
-  name: string;
-  sign: string;
-  desc: string;
-  permGr: Types.ObjectId;
-}
-
-const schema = new Schema<IPerm>(
+const schema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -22,7 +15,7 @@ const schema = new Schema<IPerm>(
       type: String,
     },
     permGr: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "perm-gr",
     },
   },
@@ -40,6 +33,6 @@ const schema = new Schema<IPerm>(
 
 schema.index({ createdAt: -1 });
 
-const Perm = model<IPerm>("perm", schema);
+const Perm = model("perm", schema);
 
-export { Perm };
+export default Perm;

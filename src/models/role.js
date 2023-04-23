@@ -1,11 +1,6 @@
-import { Schema, Types, model } from "mongoose";
+import mongoose from "mongoose";
 
-interface IRole {
-  name: string;
-  perms: Types.ObjectId;
-}
-
-const schema = new Schema<IRole>(
+const schema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -13,7 +8,7 @@ const schema = new Schema<IRole>(
     },
     perms: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "perm",
         required: true,
       },
@@ -34,6 +29,6 @@ const schema = new Schema<IRole>(
 
 schema.index({ createdAt: -1 });
 
-const Role = model<IRole>("role", schema);
+const Role = mongoose.model("role", schema);
 
-export { Role };
+export default Role;

@@ -2,7 +2,7 @@
 node_modules/
 
 # Files
-credential.json
+fbjson.json
 
 # Dotfiles
 .env

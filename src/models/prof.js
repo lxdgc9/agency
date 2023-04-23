@@ -1,13 +1,6 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-interface IProf {
-  attrs: {
-    k: string;
-    v: string;
-  }[];
-}
-
-const schema = new Schema<IProf>(
+const schema = new mongoose.Schema(
   {
     attrs: [
       {
@@ -28,6 +21,6 @@ const schema = new Schema<IProf>(
 
 schema.index({ k: 1, v: 1 });
 
-const Prof = model<IProf>("prof", schema, "Profile");
+const Prof = mongoose.model("prof", schema, "Profile");
 
-export { Prof };
+export default Prof;

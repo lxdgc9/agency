@@ -3,12 +3,13 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "beauty": "prettier --print-width 60 --write ."
   },
   "dependencies": {
     "@fastify/cors": "^8.2.1",
+    "@fastify/env": "^4.2.0",
     "@fastify/helmet": "^10.1.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
